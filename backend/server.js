@@ -11,7 +11,7 @@ app.use(express.json());
 const cors = require("cors");
 
 app.use(cors({
-  origin: ["https://attendance-iota-coral.vercel.app/"],
+  origin: ["https://attendance-iota-coral.vercel.app"],
   methods: ["POST", "GET"],
   credentials: true
 }));
