@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login - Attendance Management System</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7fa; /* White background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+      }
+
+      .login-container {
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+      }
+
+      .login-box {
+        text-align: center;
+        padding: 20px;
+      }
+
+      h2 {
+        color: #333;
+        font-size: 32px;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      label {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+        color: #333;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      input:focus {
+        border-color: #4caf50; /* Green border on focus */
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        background-color: #4caf50; /* Green background */
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+        transform: translateY(-4px); /* Button lift effect */
+      }
+
+      .btn:active {
+        background-color: #3e8e41;
+        transform: translateY(0); /* Button click effect */
+      }
+
+      .btn:focus {
+        outline: none;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .btn-group .btn {
+        width: 48%; /* Adjust width for buttons side by side */
+      }
+
+      h2 {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      #msg {
+        color: #666;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 22px;
+      }
+
+      p {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #777;
+      }
+
+      a {
+        color: #4caf50;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: #aaa;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Welcome Back!</h2>
+        <p id="msg">Please sign in to continue.</p>
+        <form action="/student/dashboard" method="POST">
+          <div class="input-group">
+            <label for="studentID">Student ID</label>
+            <input
+              type="text"
+              id="studentID"
+              name="studentID"
+              required
+              placeholder="Enter your student ID"
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              placeholder="Enter your password"
+            />
+          </div>
+          <div class="btn-group">
+            <button type="submit" class="btn" id="submitBtn">Login</button>
+          </div>
+          <p>Don't have an account? <a href="index.html">Sign up here</a></p>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      &copy; 2024 Attendance Management System. All rights reserved.
+    </div>
+  </body>
+</html>
+

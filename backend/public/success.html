@@ -1,0 +1,183 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Successful</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f7fa; /* Light background */
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff; /* White background */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px; /* Limit max width */
+        }
+
+        h1 {
+            color: #333; /* Dark text for the heading */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: #4CAF50; /* Green background */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #45a049; /* Slightly darker green on hover */
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Community!</h1>
+
+        <a href="/login" class="btn">Go to Login</a>
+    </div>
+
+    <script>
+        alert("User registered sucessfully");
+    </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    
+    <style>
+        /* Ensure body takes up full height and centers content */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #858484; /* Light background color */
+        }
+
+        /* Circular loader styling */
+        .loader {
+            border: 8px solid #f3f3f3; /* Light gray background */
+            border-top: 8px solid #3498db; /* Blue color for the moving part */
+            border-radius: 50%; /* Make it circular */
+            width: 50px; /* Width of the loader */
+            height: 50px; /* Height of the loader */
+            animation: spin 1s linear infinite; /* Spinning animation */
+        }
+
+        /* Animation for rotating the loader */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hide the container initially */
+        .container {
+            display: none; /* Hide the content container initially */
+            text-align: center;
+            background-color: #afafaf; /* White background */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px; /* Limit max width */
+        }
+
+        h1 {
+            color: #333; /* Dark text for the heading */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: #4CAF50; /* Green background */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #45a049; /* Slightly darker green on hover */
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="loader" class="loader"></div> <!-- The loader element -->
+    <div class="container" id="content">
+        <h1>Account Created Sucessfully !</h1>
+
+        <a href="/login" class="btn">Go to Login</a>
+    </div>
+
+    <script>
+        // This function will hide the loader after 3 seconds and show the content
+        setTimeout(function() {
+            const loader = document.getElementById('loader');
+            const content = document.getElementById('content');
+            
+            // Hide the loader
+            loader.style.display = 'none';
+            
+            // Show the content container
+            content.style.display = 'block';
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
+
+</body>
+</html>
