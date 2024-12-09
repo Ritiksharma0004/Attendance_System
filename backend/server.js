@@ -11,12 +11,14 @@ app.use(express.json());
 const cors = require("cors");
 
 app.use(cors({
-  origin: ["https://attendance-iota-coral.vercel.app"],
-  methods: ["POST", "GET"],
-  credentials: true
+  origin: "https://attendance-iota-coral.vercel.app", // Allow requests from your frontend
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
+  credentials: true // If cookies or authentication headers are required
 }));
 
+// Handle preflight requests for all routes
 app.options("*", cors());
+
 
 const PORT = process.env.PORT || 3000;
 
