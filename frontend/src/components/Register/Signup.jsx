@@ -27,36 +27,71 @@ function Signup() {
     };
 
     // console.log("Data to be sent:", data);  // Log the data for debugging
-  axios.defaults.withCredentials = true;
-    // Modify the Axios request to include the headers
-    axios
-      .post("https://attendancebackend-lemon.vercel.app/signup", data, {
-        headers: {
-          "Content-Type": "application/json", // Ensure the data is sent as JSON
-        },
-      })
-      .then((response) => {
-        console.log("Full response:", response);
-        console.log("Response data:", response.data);
+  // axios.defaults.withCredentials = true;
+  //   // Modify the Axios request to include the headers
+  //   axios
+  //     .post("https://attendancebackend-lemon.vercel.app/signup", data, {
+  //       headers: {
+  //         "Content-Type": "application/json", // Ensure the data is sent as JSON
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log("Full response:", response);
+  //       console.log("Response data:", response.data);
 
-        toast.success(response.data.message, {
-          position: "top-right",
-        });
-      })
-      .catch((error) => {
-        if (
-          error.response &&
-          error.response.data &&
-          error.response.data.message
-        ) {
-          // Use the message from the server response
-          toast.error(error.response.data.message, {
-            position: "top-right",
-          });
+  //       toast.success(response.data.message, {
+  //         position: "top-right",
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       if (
+  //         error.response &&
+  //         error.response.data &&
+  //         error.response.data.message
+  //       ) {
+  //         // Use the message from the server response
+  //         toast.error(error.response.data.message, {
+  //           position: "top-right",
+  //         });
+  //       }
+  //     });
+  // };
+
+
+
+
+
+     try {
+      const response = await axios.post(
+        "https://attendancebackend-lemon.vercel.app/signup",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true, // Enables cookies/credentials
         }
+      );
+
+      console.log("Response data:", response.data);
+
+      toast.success(response.data.message || "Registration Successful!", {
+        position: "top-right",
       });
+    } catch (error) {
+      console.error("Error occurred:", error);
+
+      const errorMessage =
+        error.response?.data?.message || "Registration failed. Please try again.";
+      toast.error(errorMessage, {
+        position: "top-right",
+      });
+    }
   };
 
+
+
+    
   return (
     <>
       <div className="flex justify-center items-center h-screen bg-gray-100 p-4">
