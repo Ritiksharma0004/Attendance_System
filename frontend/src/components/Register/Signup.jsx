@@ -27,10 +27,10 @@ function Signup() {
     };
 
     // console.log("Data to be sent:", data);  // Log the data for debugging
-
+  axios.defaults.withCredentials = true;
     // Modify the Axios request to include the headers
     axios
-      .post("http://localhost:3000/signup", data, {
+      .post("https://attendancebackend-lemon.vercel.app/signup", data, {
         headers: {
           "Content-Type": "application/json", // Ensure the data is sent as JSON
         },
