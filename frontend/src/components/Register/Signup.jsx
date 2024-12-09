@@ -60,7 +60,6 @@ function Signup() {
 
 
 
-app.options('*', cors());
 
 
 
