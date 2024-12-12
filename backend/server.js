@@ -8,15 +8,12 @@ require("dotenv").config();
 app.use(bodyParser.json());
 app.use(express.json());
 
-const cors = require("cors");
-
-// app.use(cors({
-//   origin: ["https://deploy-mern-1whq.vercel.app"],
-//   methods: ["POST", "GET"],
-//   credentials: true
-// }));
-
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+const cors = require('cors');
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://attendance-system-front.onrender.com'], // Add your frontend URLs here
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Define allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+}));
 
 const PORT = process.env.PORT || 3000;
 
