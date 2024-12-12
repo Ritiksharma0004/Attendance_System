@@ -34,7 +34,7 @@ function Signup() {
         headers: {
           "Content-Type": "application/json", // Ensure the data is sent as JSON
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
         credentials: 'include'
       })
       .then((response) => {
