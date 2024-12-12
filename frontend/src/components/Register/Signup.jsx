@@ -34,6 +34,7 @@ function Signup() {
         headers: {
           "Content-Type": "application/json", // Ensure the data is sent as JSON
         },
+        body: JSON.stringify(data)
       })
       .then((response) => {
         console.log("Full response:", response);
