@@ -96,7 +96,7 @@ function Signup() {
             {/* Student ID */}
             <div className="mb-4">
               <label htmlFor="studentID" className="block text-gray-700 mb-2">
-                Student ID
+                 ID   FORMAT[ Numeric+Character 7 minimum ]
               </label>
               <input
                 type="text"
@@ -105,7 +105,7 @@ function Signup() {
                 required
                 pattern="[A-Za-z0-9]{5,10}"
                 maxLength={7}
-                placeholder="Enter your Student ID"
+                placeholder="Enter your ID "
                 className="w-full p-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
                 onChange={(e) => setStudentID(e.target.value)}
               />
