@@ -118,7 +118,7 @@ function Dashboard() {
   useEffect(() => {
     // Fetch student data when component mounts
     axios
-      .get(`http://localhost:3000/dashboard/${id}`)
+      .get(`https://attendance-system-front.onrender.com/dashboard/${id}`)
       .then((response) => {
         setStudentData(response.data); // Set fetched data
         setLoading(false); // End loading state
