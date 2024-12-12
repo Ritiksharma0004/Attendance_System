@@ -1,33 +1,4 @@
-// const mongoose = require('mongoose');
-// require('dotenv').config();
 
-
-// const mongoURL = process.env.MONGODB_URL_LOCAL 
-
-// mongoose.connect(process.env.MONGO_URI, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     serverSelectionTimeoutMS: 300000, 
-//   });
-  
-
-
-// const db = mongoose.connection;
-
-
-// db.on('connected', () => {
-//     console.log('Connected to MongoDB server');
-// });
-
-// db.on('error', (err) => {
-//     console.error('MongoDB connection error:', err);
-// });
-
-// db.on('disconnected', () => {
-//     console.log('MongoDB disconnected');
-// });
-
-// module.exports = db;
 
 
 
@@ -38,6 +9,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Ensure the correct MongoDB URL is used
+// MONGO_URL_ONLINE
 const mongoURL = process.env.MONGO_URL_ONLINE; 
 
 mongoose.connect(mongoURL, {
