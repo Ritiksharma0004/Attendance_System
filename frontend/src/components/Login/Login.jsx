@@ -52,7 +52,7 @@ function Login() {
 
 
   axios
-  .post(`http://localhost:3000/dashboard/${studentID}`, { studentID, password })
+  .post(`https://attendance-system-5l6w.onrender.com/${studentID}`, { studentID, password })
   .then((response) => {
     if (response.status === 200) {
       const userData = response.data.userData;
