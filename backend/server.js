@@ -10,65 +10,37 @@ app.use(express.json());
 
 const cors = require("cors");
 
-const allowedOrigins = ['https://attendance-iota-coral.vercel.app'];  // Replace with your frontend domain
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,  // Allow credentials (cookies, authorization headers)
-}));
-// Handle preflight requests for all routes
-app.options("*", cors());
+// app.use(cors({
+//   origin: ["https://deploy-mern-1whq.vercel.app"],
+//   methods: ["POST", "GET"],
+//   credentials: true
+// }));
 
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 const PORT = process.env.PORT || 3000;
 
-// app.post("/signup", async (req, res) => {
-//   try {
-//     const user = new User(req.body);
-//     await user.save();
-//     res.status(201).json({ message: "User created successfully!" });
-//   } catch (error) {
-//     if (error.code === 11000) {
-//       // Handle duplicate key error
-//       res.status(400).json({
-//         error: "Duplicate key error",
-//         message: `The ${Object.keys(error.keyValue)[0]} '${
-//           Object.values(error.keyValue)[0]
-//         }' already exists.`,
-//       });
-//     } else {
-//       res.status(500).json({
-//         error: "Server error.",
-//         message: error.message,
-//       });
-//     }
-//   }
-// });
-
-
-app.post('/signup', (req, res) => {
-  const { name, studentID, role, phone, email, gender, password } = req.body;
-
-  // Create a new user
-  const newUser = new User({
-    name,
-    studentID,
-    role,
-    phone,
-    email,
-    gender,
-    password,
-  });
-
-  // Save user to MongoDB
-  newUser.save()
-    .then((user) => {
-      res.json({ message: 'User registered successfully', user });
-    })
-    .catch((error) => {
-      res.status(500).json({ message: 'Failed to save user', error: error.message });
-    });
+app.post("/signup", async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).json({ message: "User created successfully!" });
+  } catch (error) {
+    if (error.code === 11000) {
+      // Handle duplicate key error
+      res.status(400).json({
+        error: "Duplicate key error",
+        message: `The ${Object.keys(error.keyValue)[0]} '${
+          Object.values(error.keyValue)[0]
+        }' already exists.`,
+      });
+    } else {
+      res.status(500).json({
+        error: "Server error.",
+        message: error.message,
+      });
+    }
+  }
 });
 
 app.get("/users", async (req, res) => {
