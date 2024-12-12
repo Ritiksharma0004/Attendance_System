@@ -10,9 +10,10 @@ app.use(express.json());
 
 const cors = require('cors');
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://attendance-system-front.onrender.com'], // Add your frontend URLs here
+  origin: ['http://localhost:5173', 'https://attendance-system-front.onrender.com'], // Add your frontend URLs here
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Define allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true // Allow credentials (cookies, authorization headers)
 }));
 
 const PORT = process.env.PORT || 3000;
