@@ -35,6 +35,7 @@ function Signup() {
           "Content-Type": "application/json", // Ensure the data is sent as JSON
         },
         body: JSON.stringify(data)
+        credentials: 'include'
       })
       .then((response) => {
         console.log("Full response:", response);
