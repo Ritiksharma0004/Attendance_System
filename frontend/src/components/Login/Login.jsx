@@ -57,7 +57,7 @@ function Login() {
     if (response.status === 200) {
       const userData = response.data.userData;
       console.log("User data before redirect:", userData);
-      window.location.href = `https://attendance-system-front.onrender.com/${studentID}/`;
+      window.location.href = `/dashboard/${studentID}/`;
     }
   })
   .catch((error) => {
