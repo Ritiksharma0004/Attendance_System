@@ -30,7 +30,7 @@ function Signup() {
   axios.defaults.withCredentials = true;
     // Modify the Axios request to include the headers
     axios
-      .post("https://attendancebackend-lemon.vercel.app/signup", data, {
+      .post("https://attendance-system-5l6w.onrender.com/signup", data, {
         headers: {
           "Content-Type": "application/json", // Ensure the data is sent as JSON
         },
