@@ -11,12 +11,16 @@ function Dashboard() {
   const [error, setError] = useState(null); // Error state
   const [showAttendance, setShowAttendance] = useState(false);
 
-  const { id } = useParams();
+  // const { id } = useParams();
+
+  // useEffect(() => {
+  //   // Fetch student data when component mounts
+  //   axios
+  //     .get(`https://attendance-system-front.onrender.com/dashboard/${id}`)
+    const { studentID } = useParams();
 
   useEffect(() => {
-    // Fetch student data when component mounts
-    axios
-      .get(`https://attendance-system-front.onrender.com/dashboard/${id}`)
+    axios.get(`https://attendance-system-front.onrender.com/dashboard/${studentID}`)
       .then((response) => {
         setStudentData(response.data); // Set fetched data
         setLoading(false); // End loading state
