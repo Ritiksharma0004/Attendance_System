@@ -51,11 +51,11 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.post("/dashboard/:stId", async (req, res) => {
+app.post("/dashboard/:studentID", async (req, res) => {
   try {
     const { studentID, password } = req.body;
 
-    const stId = req.params.stId;
+    const studentID = req.params.studentID;
 
     const user = await User.findOne({ studentID: studentID });
 
