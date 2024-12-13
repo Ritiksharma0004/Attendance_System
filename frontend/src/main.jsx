@@ -42,28 +42,50 @@ import TimeTable from './components/Timetable/Timetable.jsx'
 //   }
 // ])
 
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <>
+//     <Route path="/" element= {<Layout />} >
+//       <Route  path='/' element= {<Home />} />
+//       <Route  path='/about' element= {<About />} />
+//       <Route  path='/login' element= {<Login />} />
+//       <Route  path='/contact' element= {<Contact />} />
+//       <Route  path='/signup' element= {<Signup />} />
+//       <Route  path='user/:userid' element= {<User />} />
+//       {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+//     </Route>
+
+//     <Route path="/dashboard" element={<DashboardLayout />}>
+//         <Route path="/dashboard/:id" element={<Dashboard />} />
+//         <Route path='/dashboard/:id/timetable' element={<TimeTable />} />
+//       </Route>
+      
+//     </>
+    
+//   )
+// )
+
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-    <Route path="/" element= {<Layout />} >
-      <Route  path='/' element= {<Home />} />
-      <Route  path='/about' element= {<About />} />
-      <Route  path='/login' element= {<Login />} />
-      <Route  path='/contact' element= {<Contact />} />
-      <Route  path='/signup' element= {<Signup />} />
-      <Route  path='user/:userid' element= {<User />} />
-      {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-    </Route>
-
-    <Route path="/dashboard" element={<DashboardLayout />}>
-        <Route path="/dashboard/:id" element={<Dashboard />} />
-        <Route path='/dashboard/:id/timetable' element={<TimeTable />} />
+      <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="user/:userid" element={<User />} />
       </Route>
-      
+      <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path=":id" element={<Dashboard />} />
+        <Route path=":id/timetable" element={<TimeTable />} />
+      </Route>
     </>
-    
   )
-)
+);
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
