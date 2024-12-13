@@ -76,21 +76,37 @@ app.post("/dashboard/:studentID", async (req, res) => {
   }
 });
 
-app.get("/dashboard/:studentID", async (req, res) => {
-  try {
-    const studentID = req.params.studentID; // Get the studentID from the route params
+// app.get("/dashboard/:studentID", async (req, res) => {
+//   try {
+//     const studentID = req.params.studentID; // Get the studentID from the route params
 
-    const student = await User.findOne({ studentID: studentID }); // Find student by studentID, not _id
+//     const student = await User.findOne({ studentID: studentID }); // Find student by studentID, not _id
+//     if (!student) {
+//       return res.status(404).send("Student not found");
+//     }
+
+//     res.json(student); // Return student data as JSON
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send("Server error");
+//   }
+// });
+
+app.get("/dashboard/:studentID", async (req, res) => {
+  console.log("Received request for studentID:", req.params.studentID);
+  try {
+    const student = await User.findOne({ studentID: req.params.studentID });
+    console.log("Student data:", student);
     if (!student) {
       return res.status(404).send("Student not found");
     }
-
-    res.json(student); // Return student data as JSON
+    res.json(student);
   } catch (error) {
-    console.log(error);
+    console.error("Error:", error);
     res.status(500).send("Server error");
   }
 });
+
 
 app.put("/user/updateAttendance", async (req, res) => {
   const { users } = req.body;
