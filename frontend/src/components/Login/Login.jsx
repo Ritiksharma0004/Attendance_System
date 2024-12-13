@@ -4,10 +4,15 @@ import { Link,NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
+import { useEffect } from "react";
+
 
 function Login() {
 
- 
+  useEffect(() => {
+    // Show custom alert message when the component mounts
+    alert("Currently logging is on updation Please wait until other updation");
+  }, []);
 
   const [studentID,setStudentID] = useState("")
   const [password, setPassword] = useState("")
@@ -120,6 +125,7 @@ function Login() {
           {/* Submit Button */}
           <div className="mb-6">
             <button
+             disabled
             onClick={handleClick}
               type="submit"
               className="w-full py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-all"
