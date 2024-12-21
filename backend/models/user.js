@@ -5,6 +5,9 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
+    lowercase: true,
+    trim: true,
   },
   studentID: {
     type: String,
@@ -20,18 +23,22 @@ const userSchema = new mongoose.Schema({
     type: String,  // Change from Number to String
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address'], // Validate email format
+    },
   gender: {
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
+ password: {
+      type: String,
+      required: [true, 'Password is required'],
+      minlength: [8, 'Password must be at least 8 characters long'], // Enforce a minimum length
+    },
   attendance: {
     type: Number,
     default: 0
